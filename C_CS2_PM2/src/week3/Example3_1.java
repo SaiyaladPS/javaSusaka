@@ -2,8 +2,10 @@ package week3;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import config.ThemeConfig;
+import includeClass.NumberComma;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 public class Example3_1 extends javax.swing.JFrame {
@@ -53,11 +55,23 @@ public class Example3_1 extends javax.swing.JFrame {
         jLabel2.setText("ລາຄາສິນຄ້າຕໍ່ໜ່ວຍ");
 
         txtPrice.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        txtPrice.addActionListener(this::txtPriceActionPerformed);
+        txtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPriceKeyReleased(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
         jLabel3.setText("ຈໍານວນ");
 
         txtQty.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        txtQty.addActionListener(this::txtQtyActionPerformed);
+        txtQty.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtQtyKeyReleased(evt);
+            }
+        });
 
         btnCalculate.setBackground(new java.awt.Color(102, 102, 102));
         btnCalculate.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
@@ -160,50 +174,73 @@ public class Example3_1 extends javax.swing.JFrame {
         // ປະກາດຕົວປ່ຽນ
         double price;   //ລາຄາສິນຄ້າ
         int qty;        //ລາຄາຕໍ່ໜ່ວຍ
-        
+
+        if (txtPrice.getText().isBlank() || txtQty.getText().isBlank()) {
+            JOptionPane.showMessageDialog(this, "ກະລຸນາປ້ອນຂໍ້ມູນໃຫ້ຄົບຖ້ວນດວ້ຍ", "ເກີດຂໍ້ຜຶດພາດ", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         try {
-            price = Double.parseDouble(txtPrice.getText());
-        }catch (Exception e) {
+            price = Double.parseDouble(txtPrice.getText().replace(",", ""));
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ກະລຸນາປ້ອນລາຄາສິນຄ້າໃຫ້ຖືກຕ້ອງ", "ຜິດພາດ", JOptionPane.WARNING_MESSAGE);
             txtPrice.requestFocus();
             return;
         }
-        
+
         try {
-            qty = Integer.parseInt(txtQty.getText());
-            
-        }catch (Exception e) {
+            qty = Integer.parseInt(txtQty.getText().replace(",", ""));
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "ກະລຸນາປ້ອນຈຳນວນສິນຄ້າໃຫ້ຖືກຕ້ອງ", "ຜິດພາດ", JOptionPane.WARNING_MESSAGE);
             txtPrice.requestFocus();
             return;
         }
-
-        //ຮັບຄ່າຈາກຟອມ
-        price = Double.parseDouble(txtPrice.getText());
-        qty = Integer.parseInt(txtQty.getText());
-
+       
         total = price * qty;
 
+        DecimalFormat df = new DecimalFormat("#,###.##");
+
         //ສະແດງຄ່າທີ່ຫ້ອງ ລາຄາລວມ
-        txtTotal.setText(Double.toString(total));
+        txtTotal.setText(df.format(total));
     }//GEN-LAST:event_btnCalculateActionPerformed
 
     private void txtPayKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPayKeyReleased
         // ຖ້າຫ້ອງປ້ອນເງິນຊໍາລະບໍ່ມີຄ່າຈະໃຫ້ຢຸດການປະມວນຜົນ
-        if(txtPay.getText().isBlank()) {
+        if (txtPay.getText().isBlank()) {
             txtChange.setText("");
             return;
         }
-        
+
         double pay = Double.parseDouble(txtPay.getText());
         double change = pay - total;
-        
-        if(change < 0) {
+
+        if (change < 0) {
             txtChange.setText("ເງິນຊໍາລະບໍ່ພຽງພໍ");
         } else {
             txtChange.setText(Double.toString(change));
         }
     }//GEN-LAST:event_txtPayKeyReleased
+
+    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
+        // TODO add your handling code here:
+        txtQty.requestFocus();
+    }//GEN-LAST:event_txtPriceActionPerformed
+
+    private void txtQtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQtyActionPerformed
+        // TODO add your handling code here:
+        btnCalculate.doClick();
+    }//GEN-LAST:event_txtQtyActionPerformed
+
+    private void txtPriceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyReleased
+        // TODO add your handling code here:
+        NumberComma.numberFormat(txtPrice, true);
+    }//GEN-LAST:event_txtPriceKeyReleased
+
+    private void txtQtyKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtQtyKeyReleased
+        // TODO add your handling code here:
+        NumberComma.numberFormat(txtQty, true);
+    }//GEN-LAST:event_txtQtyKeyReleased
 
     public static void main(String args[]) {
         /*ໃຊ້  FlatLaft Libary*/
