@@ -4,6 +4,7 @@ import com.formdev.flatlaf.FlatClientProperties;
 import config.ThemeConfig;
 import java.awt.Color;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 public class Example3_1 extends javax.swing.JFrame {
 
@@ -159,6 +160,23 @@ public class Example3_1 extends javax.swing.JFrame {
         // ປະກາດຕົວປ່ຽນ
         double price;   //ລາຄາສິນຄ້າ
         int qty;        //ລາຄາຕໍ່ໜ່ວຍ
+        
+        try {
+            price = Double.parseDouble(txtPrice.getText());
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "ກະລຸນາປ້ອນລາຄາສິນຄ້າໃຫ້ຖືກຕ້ອງ", "ຜິດພາດ", JOptionPane.WARNING_MESSAGE);
+            txtPrice.requestFocus();
+            return;
+        }
+        
+        try {
+            qty = Integer.parseInt(txtQty.getText());
+            
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "ກະລຸນາປ້ອນຈຳນວນສິນຄ້າໃຫ້ຖືກຕ້ອງ", "ຜິດພາດ", JOptionPane.WARNING_MESSAGE);
+            txtPrice.requestFocus();
+            return;
+        }
 
         //ຮັບຄ່າຈາກຟອມ
         price = Double.parseDouble(txtPrice.getText());
