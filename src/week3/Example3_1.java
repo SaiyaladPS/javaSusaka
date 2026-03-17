@@ -93,6 +93,7 @@ public class Example3_1 extends javax.swing.JFrame {
         jLabel5.setText("ເງິນຊໍາລະ");
 
         txtPay.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        txtPay.addActionListener(this::txtPayActionPerformed);
         txtPay.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPayKeyReleased(evt);
@@ -241,6 +242,11 @@ public class Example3_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         NumberComma.numberFormat(txtQty, true);
     }//GEN-LAST:event_txtQtyKeyReleased
+
+    private void txtPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPayActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtPayActionPerformed
 
     public static void main(String args[]) {
         /*ໃຊ້  FlatLaft Libary*/
