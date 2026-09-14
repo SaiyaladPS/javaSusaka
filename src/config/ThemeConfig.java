@@ -22,7 +22,7 @@ public class ThemeConfig {
         UIManager.put("OptionPane.okButtonText", "ຕົກລົງ");
         UIManager.put("OptionPane.cancelButtonText", "ຍົກເລີກ");
         UIManager.put("OptionPane.yesButtonText", "ແມ່ນ");
-        UIManager.put("OptionPane.noButtonText", "ບໍ່");
+        UIManager.put("OptionPane.noButtonText", "ບໍ່ແມ່ນ");
 
         // ====== Component Shape ======
         UIManager.put("Button.arc", 10);

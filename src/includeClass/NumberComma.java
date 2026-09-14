@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package includeClass;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Admin
- */
 public class NumberComma {
     public static void numberFormat(JTextField txtField, boolean decimalNumber) {
         if (!decimalNumber) {
