@@ -132,6 +132,7 @@ public class Main extends javax.swing.JFrame {
 
         jMenuItem3.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
         jMenuItem3.setText("ຈັດການຂໍ້ມູນສິນຄ້າ");
+        jMenuItem3.addActionListener(this::jMenuItem3ActionPerformed);
         jMenuData.add(jMenuItem3);
 
         jMenuItem4.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
@@ -368,6 +369,11 @@ public class Main extends javax.swing.JFrame {
     private void jMenuItemCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCategoryActionPerformed
         showPanel(new PanelCategory());
     }//GEN-LAST:event_jMenuItemCategoryActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        showPanel(new PanelProduct());
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

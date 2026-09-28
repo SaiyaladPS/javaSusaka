@@ -64,6 +64,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#xe88;&#xeb1;&#xe94;&#xe81;&#xeb2;&#xe99;&#xe82;&#xecd;&#xec9;&#xea1;&#xeb9;&#xe99;&#xeaa;&#xeb4;&#xe99;&#xe84;&#xec9;&#xeb2;"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>

@@ -4,6 +4,8 @@
  */
 package applicationForm;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jayj2
@@ -15,6 +17,7 @@ public class PanelProduct extends javax.swing.JPanel {
      */
     public PanelProduct() {
         initComponents();
+        configureProductTable();
     }
 
     /**
@@ -26,19 +29,531 @@ public class PanelProduct extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCategory_name = new javax.swing.JTextField();
+        btnEdit = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        txtCategory_id = new javax.swing.JTextField();
+        txtCategory_id1 = new javax.swing.JTextField();
+        txtCategory_name1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtCategory_id2 = new javax.swing.JTextField();
+        txtCategory_name3 = new javax.swing.JTextField();
+        txtCategory_id3 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        txtSearch = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        setLayout(new java.awt.BorderLayout());
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ຈັດການຂໍ້ມູນປະເພດສິນຄ້າ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lao_SomVang", 0, 16))); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel1.setText("ລະຫັດບາໂຄດ");
+
+        jLabel2.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel2.setText("ລາຍການສິນຄ້າ");
+
+        txtCategory_name.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+
+        btnEdit.setBackground(new java.awt.Color(255, 153, 0));
+        btnEdit.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(51, 51, 51));
+        btnEdit.setText("ແກ້ໄຂ");
+        btnEdit.addActionListener(this::btnEditActionPerformed);
+
+        btnAdd.setBackground(new java.awt.Color(51, 102, 255));
+        btnAdd.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("ເພີ້ມ");
+        btnAdd.addActionListener(this::btnAddActionPerformed);
+
+        btnCancel.setBackground(new java.awt.Color(0, 255, 255));
+        btnCancel.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(51, 51, 51));
+        btnCancel.setText("ຍົກເລີກ");
+        btnCancel.addActionListener(this::btnCancelActionPerformed);
+
+        btnDelete.setBackground(new java.awt.Color(204, 0, 51));
+        btnDelete.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("ລືບ");
+        btnDelete.addActionListener(this::btnDeleteActionPerformed);
+
+        txtCategory_id.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+
+        txtCategory_id1.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+
+        txtCategory_name1.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel3.setText("ຈຳນວນ");
+
+        jLabel4.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel4.setText("ຫົວຫນ່ວຍ");
+
+        jLabel6.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel6.setText("ລາຄາຂາຍ");
+
+        jLabel7.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel7.setText("ລາຄາຕົ້ນທືນ");
+
+        jLabel8.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel8.setText("ຈຳນວນຕຳສຸດ");
+
+        txtCategory_id2.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+
+        txtCategory_name3.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+
+        txtCategory_id3.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel10.setText("ສະຖານະ");
+
+        jLabel11.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel11.setText("ປະເພດ");
+
+        jLabel12.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel12.setText("ຍີຫໍ້");
+
+        jComboBox1.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ມີ", "ບໍ່ມີ" }));
+        jComboBox1.addActionListener(this::jComboBox1ActionPerformed);
+
+        jComboBox2.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+
+        jComboBox3.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+
+        jLabel5.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        jLabel5.setText("ຄົ້ນວຫາ");
+
+        txtSearch.setFont(new java.awt.Font("Lao_SomVang", 0, 14)); // NOI18N
+        txtSearch.setToolTipText("ຄົ້ນວຫາສິນຄ້າ...");
+
+        jTable1.setFont(new java.awt.Font("Lao_SomVang", 0, 12)); // NOI18N
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "ລະຫັດສິນຄ້າ", "ລາຍການສິນຄ້າ", "ຊື່ສິນ້າ", "ຫົວໜ່ວຍ", "ຈຳນວນ", "ຈຳນວນຕຳສຸດ", "ລາຄາຕົ້ນທືນ", "ຍີຫໍ້", "ປະເພດ", "ສະຖານະ"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel5)
+                .addGap(10, 10, 10)
+                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jScrollPane1, 0, 731, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtCategory_name1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(6, 6, 6)
+                            .addComponent(txtCategory_id, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(txtCategory_id2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.CENTER, jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addGap(10, 10, 10)
+                            .addComponent(txtCategory_name, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(txtCategory_name3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(10, 10, 10)
+                            .addComponent(txtCategory_id1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(txtCategory_id3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel1))
+                    .addComponent(txtCategory_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel8))
+                    .addComponent(txtCategory_id2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel12))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCategory_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCategory_name3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel11))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCategory_id1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCategory_id3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel10))))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCategory_name1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAdd)
+                            .addComponent(btnEdit)
+                            .addComponent(btnDelete)
+                            .addComponent(btnCancel)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, 0, 206, Short.MAX_VALUE))
         );
+
+        add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void configureProductTable() {
+        jTable1.setRowHeight(34);
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTable1.setShowVerticalLines(false);
+        jTable1.setShowHorizontalLines(true);
+        jTable1.setGridColor(new java.awt.Color(226, 232, 240));
+        jTable1.setSelectionBackground(new java.awt.Color(219, 234, 254));
+        jTable1.setSelectionForeground(new java.awt.Color(30, 64, 175));
+        jTable1.setRowSorter(new javax.swing.table.TableRowSorter<>(jTable1.getModel()));
+        jTable1.setFillsViewportHeight(true);
+
+        jTable1.getTableHeader().setFont(new java.awt.Font("Lao_SomVang", java.awt.Font.BOLD, 14));
+        jTable1.getTableHeader().setBackground(new java.awt.Color(30, 64, 175));
+        jTable1.getTableHeader().setForeground(java.awt.Color.WHITE);
+        jTable1.getTableHeader().setPreferredSize(new java.awt.Dimension(0, 38));
+        jTable1.getTableHeader().setReorderingAllowed(false);
+
+        javax.swing.table.DefaultTableCellRenderer centeredCellRenderer = new javax.swing.table.DefaultTableCellRenderer();
+        centeredCellRenderer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        int[] centeredColumns = {0, 3, 4, 5, 6, 7, 8, 9};
+        for (int column : centeredColumns) {
+            jTable1.getColumnModel().getColumn(column).setCellRenderer(centeredCellRenderer);
+        }
+
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(203, 213, 225)));
+        jScrollPane1.getViewport().setBackground(java.awt.Color.WHITE);
+
+        txtSearch.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            @Override
+            public void insertUpdate(javax.swing.event.DocumentEvent event) {
+                filterProductTable();
+            }
+
+            @Override
+            public void removeUpdate(javax.swing.event.DocumentEvent event) {
+                filterProductTable();
+            }
+
+            @Override
+            public void changedUpdate(javax.swing.event.DocumentEvent event) {
+                filterProductTable();
+            }
+        });
+    }
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    private void filterProductTable() {
+        javax.swing.table.TableRowSorter sorter = (javax.swing.table.TableRowSorter) jTable1.getRowSorter();
+        String keyword = txtSearch.getText().trim();
+        sorter.setRowFilter(keyword.isEmpty()
+                ? null
+                : javax.swing.RowFilter.regexFilter("(?i)" + java.util.regex.Pattern.quote(keyword)));
+    }
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        DefaultTableModel d = (DefaultTableModel) jTable1.getModel();
+        int rowIndex = jTable1.getSelectedRow();  //ເອົາຄ່າລໍາດັບແຖວກັບໄວ້າໃນ rowIndex
+
+        if (rowIndex < 0) {
+            return;
+        }
+
+        txtCategory_id.setText(d.getValueAt(rowIndex, 1).toString());
+        txtCategory_name.setText(d.getValueAt(rowIndex, 2).toString());
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        //ຖ້າເລືອກຂໍ້ມູນໃນຕາຕະລາງແລ້ວກົດປຸ່ມ ແກ້ໄຂ ໃຫ້ແຈ້ງເຕືອນ
+        if (jTable1.getSelectedRow() < 0) {
+            JOptionPane.showMessageDialog(this, "ກະລຸນາເລືອກຂໍ້ມູນໃນຕາຕະລາງກ່ອນລືບດ້ວຍ", "ຜິດພາດ", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        //ຢືນຢັນກ່ອນລືບຂໍ້ມູນ
+        int data = JOptionPane.showConfirmDialog(
+            this,
+            "ທ່ານຕ້ອງການລືບຂຂໍ້ມູນລາຍການນີ້ແທ້ ຫຼື ບໍ່?",
+            "ຢືນຢັນ",
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (data != 0) {
+            clearForm();
+            return;
+        }
+
+        try {
+            String sql = " DELETE FROM category  WHERE  category_id=?  ";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txtCategory_id.getText());
+
+            if (pst.executeUpdate() > 0) {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "ຂໍ້ມູນຖືກລືບອອກຈາກຖານຂໍ້ມູນ ສໍາເລັດ",
+                    "ສໍາເລັດ",
+                    JOptionPane.WIDTH,
+                    new FlatSVGIcon("images_svg/done.svg")
+                );
+
+                clearForm();
+                tableUpdate();
+            }
+
+        } catch (SQLException e) {
+            if (e.getErrorCode() == 1451) {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "ບໍ່ສາມາດລືບຍີ່ຫໍ້ນີ້ໄດ້ ເນື່ອງຈາກຖືກນໍາໃຊ້ຢູ່",
+                    "ຜິດພາດ",
+                    JOptionPane.ERROR_MESSAGE
+                );
+
+            } else {
+                JOptionPane.showMessageDialog(this, e);
+            }
+
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        clearForm();
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        //ຖ້າເລືອກຂໍ້ມູນໃນຕາຕະລາງແລ້ວກົດປຸ່ມ ເພີ່ມ ໃຫ້ແຈ້ງເຕືອນ
+        if (jTable1.getSelectedRow() >= 0) {
+            JOptionPane.showMessageDialog(this, "ເມື່ອທ່ານເລືອກຂໍ້ມູນໃນຕາຕະລາງແລ້ວບໍ່ສາມາດກົດປຸ່ມເພີ່ມໄດ້ ", "ຜິດພາດ", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        //ຖ້າຫ້ອງຊື່ຍີ່ຫໍ້ບໍ່ມີຄ່າໃຫ້ແຈ້ງເຕືອນ
+        if (txtCategory_name.getText().isBlank()) {
+            JOptionPane.showMessageDialog(this, "ກະລຸນາປ້ອນຊື່ຍີ່ຫໍ້ດ້ວຍ", "ຫວ່າງເປົ່າ", JOptionPane.WARNING_MESSAGE);
+            txtCategory_name.requestFocus();
+            return;
+        }
+
+        try {
+            String sql = " INSERT INTO category  VALUES( ?,  ? ) ";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txtCategory_id.getText());
+            pst.setString(2, txtCategory_name.getText());
+
+            if (pst.executeUpdate() > 0) {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "ຂໍ້ມູນຖືກບັນທຶກລົງໃນຖານຂໍ້ມູນ ສໍາເລັດ",
+                    "ສໍາເລັດ",
+                    JOptionPane.WIDTH,
+                    new FlatSVGIcon("images_svg/done.svg")
+                );
+
+                clearForm();
+                tableUpdate();
+            }
+
+        } catch (SQLException e) {
+            if (e.getErrorCode() == 1062) {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "ຊື່ຍີ່ຫໍ້ນີ້ມີຢູ່ໃນລະບົບແລ້ວ! ກະລຸນາປ່ຽນໃໝ່",
+                    "ຂໍ້ມູນຊໍ້າ",
+                    JOptionPane.WARNING_MESSAGE
+                );
+                txtCategory_name.requestFocus();
+            } else {
+                JOptionPane.showMessageDialog(this, e);
+            }
+
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        //ຖ້າເລືອກຂໍ້ມູນໃນຕາຕະລາງແລ້ວກົດປຸ່ມ ແກ້ໄຂ ໃຫ້ແຈ້ງເຕືອນ
+        if (jTable1.getSelectedRow() < 0) {
+            JOptionPane.showMessageDialog(this, "ກະລຸນາເລືອກຂໍ້ມູນໃນຕາຕະລາງກ່ອນແກ້ໄຂດ້ວຍ", "ຜິດພາດ", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        //ຖ້າຫ້ອງຊື່ຍີ່ຫໍ້ບໍ່ມີຄ່າໃຫ້ແຈ້ງເຕືອນ
+        if (txtCategory_name.getText().isBlank()) {
+            JOptionPane.showMessageDialog(this, "ກະລຸນາປ້ອນຊື່ຍີ່ຫໍ້ດ້ວຍ", "ຫວ່າງເປົ່າ", JOptionPane.WARNING_MESSAGE);
+            txtCategory_name.requestFocus();
+            return;
+        }
+
+        try {
+            String sql = " UPDATE  category  SET  category_name=?  WHERE  category_id=?  ";
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, txtCategory_name.getText());
+            pst.setString(2, txtCategory_id.getText());
+
+            if (pst.executeUpdate() > 0) {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "ປັບປຸງຂໍ້ມູນໃນຖານຂໍ້ມູນ ສໍາເລັດ",
+                    "ສໍາເລັດ",
+                    JOptionPane.WIDTH,
+                    new FlatSVGIcon("images_svg/done.svg")
+                );
+
+                clearForm();
+                tableUpdate();
+            }
+
+        } catch (SQLException e) {
+            if (e.getErrorCode() == 1062) {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "ຊື່ຍີ່ຫໍ້ນີ້ມີຢູ່ໃນລະບົບແລ້ວ! ກະລຸນາປ່ຽນໃໝ່",
+                    "ຂໍ້ມູນຊໍ້າ",
+                    JOptionPane.WARNING_MESSAGE
+                );
+                txtCategory_name.requestFocus();
+            } else {
+                JOptionPane.showMessageDialog(this, e);
+            }
+
+        }
+    }//GEN-LAST:event_btnEditActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtCategory_id;
+    private javax.swing.JTextField txtCategory_id1;
+    private javax.swing.JTextField txtCategory_id2;
+    private javax.swing.JTextField txtCategory_id3;
+    private javax.swing.JTextField txtCategory_name;
+    private javax.swing.JTextField txtCategory_name1;
+    private javax.swing.JTextField txtCategory_name3;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/laragon/www/C-CS1-PM2/javaSusaka/src/applicationForm/Login.java</file>
+            <file>file:/E:/laragon/www/C-CS1-PM2/javaSusaka/src/mysql_connect/MysqlConnect.java</file>
+            <file>file:/E:/laragon/www/C-CS1-PM2/javaSusaka/src/applicationForm/PanelHome.java</file>
+            <file>file:/E:/laragon/www/C-CS1-PM2/javaSusaka/src/applicationForm/PanelCategory.java</file>
+            <file>file:/E:/laragon/www/C-CS1-PM2/javaSusaka/src/applicationForm/PanelProduct.java</file>
+            <file>file:/E:/laragon/www/C-CS1-PM2/javaSusaka/src/applicationForm/PasswordTest.java</file>
+            <file>file:/E:/laragon/www/C-CS1-PM2/javaSusaka/src/applicationForm/PanelBrand.java</file>
+            <file>file:/E:/laragon/www/C-CS1-PM2/javaSusaka/src/applicationForm/Main.java</file>
+        </group>
     </open-files>
 </project-private>
