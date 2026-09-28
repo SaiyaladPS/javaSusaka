@@ -12,6 +12,8 @@ import org.mindrot.jbcrypt.BCrypt;
 
 public class Login extends javax.swing.JFrame {
 
+    private javax.swing.Timer loginAnimationTimer;
+
     Connection conn = null;         //ເກັບການເຊື່ອມຕໍ່ຖານຂໍ້ມູນ
     PreparedStatement pst = null;   //ກຽມຄໍາສັ່ງ sql
     ResultSet rs = null;            //ເກັບຜົນໄດ້ຮັບຈາກການປະມວນຜົນຄໍາສັ່ງ sql
@@ -115,41 +117,68 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // ຖ້າບໍ່ປ້ອນບັນຊີເຂົ້າໃຊ້ ຫຼື ລະຫັດຜ່ານ ໃຫ້ແຈ້ງເຕືອນ
         if (txtUsername.getText().isBlank() || txtPassword.getText().isBlank()) {
-            JOptionPane.showMessageDialog(
-                    this,
-                    "ກະລຸນາປ້ອນຂໍ້ມູນໃຫ້ຄົບຖ້ວນດ້ວຍ",
-                    "ຫວ່າງເປົ່າ",
-                    JOptionPane.WARNING_MESSAGE
-            );
-
+            JOptionPane.showMessageDialog(this, "ກະລຸນາປ້ອນຂໍ້ມູນໃຫ້ຄົບຖ້ວນດ້ວຍ", "ຫວ່າງເປົ່າ", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        try {
-            conn = MysqlConnect.connectDB(); //ເຊື່ອມຕໍ່ຖານຂໍ້ມູນ
-            String sql = "SELECT emp_id, CONCAT(emp_name, ' ', emp_lname) AS name, status , password FROM employee WHERE username = ? ";
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, txtUsername.getText());
-            rs = pst.executeQuery();
-            if (rs.next()) {
+        setLoginLoading(true);
+        final String username = txtUsername.getText().trim();
+        final String password = txtPassword.getText();
 
-                if (BCrypt.checkpw(txtPassword.getText(), rs.getString(4))) {
-                    Main m = new Main(rs.getString(1), rs.getString(2), rs.getString(3));
-                    m.setVisible(true);
-                    dispose(); //ປິດໜ້າ Login
-                } else {
-                    JOptionPane.showMessageDialog(this, "ບັນຊີເຂົ້າໃຊ້ ແລະ ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ", "ຜິດພາດ", JOptionPane.ERROR_MESSAGE);
+        new javax.swing.SwingWorker<String[], Exception>() {
+            @Override
+            protected String[] doInBackground() {
+                try {
+                    conn = MysqlConnect.connectDB();
+                    String sql = "SELECT emp_id, CONCAT(emp_name, ' ', emp_lname) AS name, status, password FROM employee WHERE username = ?";
+                    pst = conn.prepareStatement(sql);
+                    pst.setString(1, username);
+                    rs = pst.executeQuery();
+                    if (!rs.next() || !BCrypt.checkpw(password, rs.getString(4))) return null;
+                    return new String[]{rs.getString(1), rs.getString(2), rs.getString(3)};
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
-
-            } else {
-                JOptionPane.showMessageDialog(this, "ບັນຊີເຂົ້າໃຊ້ ແລະ ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ", "ຜິດພາດ", JOptionPane.ERROR_MESSAGE);
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e);
-        }
+
+            @Override
+            protected void done() {
+                setLoginLoading(false);
+                try {
+                    String[] user = get();
+                    if (user == null) {
+                        JOptionPane.showMessageDialog(Login.this, "ບັນຊີເຂົ້າໃຊ້ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ", "ຜິດພາດ", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    Main m = new Main(user[0], user[1], user[2]);
+                    m.setVisible(true);
+                    dispose();
+                } catch (Exception e) {
+                    Throwable cause = e.getCause() == null ? e : e.getCause();
+                    JOptionPane.showMessageDialog(Login.this, cause.getMessage(), "ຜິດພາດ", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }.execute();
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void setLoginLoading(boolean loading) {
+        txtUsername.setEnabled(!loading);
+        txtPassword.setEnabled(!loading);
+        btnLogin.setEnabled(!loading);
+        if (!loading) {
+            if (loginAnimationTimer != null) loginAnimationTimer.stop();
+            btnLogin.setText("ເຂົ້າໃຊ້ງານ");
+            return;
+        }
+        btnLogin.setText("ກຳລັງກວດສອບ");
+        final int[] dots = {0};
+        loginAnimationTimer = new javax.swing.Timer(350, e -> {
+            dots[0] = (dots[0] + 1) % 4;
+            btnLogin.setText("ກຳລັງກວດສອບ" + ".".repeat(dots[0]));
+        });
+        loginAnimationTimer.start();
+    }
 
     public static void main(String args[]) {
         /* ເອີ້ນໃຊ້ງານ FlatLaf*/
